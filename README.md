@@ -1,2 +1,2 @@
-# wp-themes
-Wordpress Themes Templates
+# CelandOne
+Wordpress Theme Template
