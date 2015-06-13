@@ -111,5 +111,9 @@ For a good outcome and visualization of the website the API feature requires JSO
 * (x) mountain
 *	(x) turntable
 * (x) enterTheDragon
+* (x or y) bezierQuad
+* (x or y) bezierShape
+* (x or y) xyBumpTaper
+* (x or y) sunrise
 
 
