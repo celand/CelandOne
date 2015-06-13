@@ -104,7 +104,7 @@ For a good outcome and visualization of the website the API feature requires JSO
 
 ## 8. Gallery Animation Types ##
 
-(x or y) xyPlain
+* (x or y) xyPlain
 * (x) streamHorizontal
 * (y) pinterest
 * (x) mountain
