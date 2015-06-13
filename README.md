@@ -14,6 +14,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 5. Add Menu Description
 6. Quick Specs
 7. Requirements
+8. Gallery Animation
 
 ## 1. Description ##
 Our 2015 default theme is clean, blog-focused, and designed for clarity. CelandOne's simple, straightforward typography is readable on a wide variety of screen sizes, and suitable for multiple languages. We designed it using a mobile-first approach, meaning your content takes center-stage, regardless of whether your visitors arrive by smartphone, tablet, laptop, or desktop computer.
@@ -100,3 +101,14 @@ CelandOne sports a menu design that's easy to navigate -- especially when you ad
 ## 7. Requirements ##
 
 For a good outcome and visualization of the website the API feature requires JSON API Wordpress Plug-In
+
+## 8. Gallery Animation Types ##
+
+(x or y) xyPlain
+* (x) streamHorizontal
+* (y) pinterest
+* (x) mountain
+*	(x) turntable
+* (x) enterTheDragon
+
+
