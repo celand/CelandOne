@@ -239,3 +239,4 @@ get_header(); ?>
   	  	</div>
 	</div><!-- .content-area -->
 
+<?php wp_footer(); ?>

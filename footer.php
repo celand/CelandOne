@@ -13,7 +13,7 @@
 	</div><!-- .site-content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
+		<div class="site-info" style="display: none;">
 			<?php
 				/**
 				 * Fires before the CelandOne footer text for footer customization.
