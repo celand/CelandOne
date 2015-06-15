@@ -325,7 +325,7 @@ function celandone_get_tremula_nthumb_schemes() {
 		),
 		'one' => array(
 			'label'  => __( 'One', 'celandone' ),
-			'type' => '1',
+			'type' => '0',
 		),
 		'three' => array(
 			'label'  => __( 'Three', 'celandone' ),
