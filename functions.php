@@ -30,6 +30,8 @@
  *
  * @since CelandOne 1.0
  */
+
+ 
 if ( ! isset( $content_width ) ) {
 	$content_width = 660;
 }
@@ -105,6 +107,9 @@ function celandone_setup() {
 
 	$color_scheme  = celandone_get_color_scheme();
 	$default_color = trim( $color_scheme[0], '#' );
+	$tremula_type = celandone_get_tremula_scheme();
+	$tremula_tt='fuuuck';
+
 
 	// Setup the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'celandone_custom_background_args', array(
@@ -353,3 +358,7 @@ require get_template_directory() . '/inc/template-tags.php';
  * @since CelandOne 1.0
  */
 require get_template_directory() . '/inc/customizer.php';
+
+$tremula_type = celandone_get_tremula_scheme();
+$tremula_thumb_type = celandone_get_tremula_thumb_scheme();
+$tremula_nthumb_type = celandone_get_tremula_nthumb_scheme();

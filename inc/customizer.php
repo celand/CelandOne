@@ -16,6 +16,7 @@
  */
 function celandone_customize_register( $wp_customize ) {
 	$color_scheme = celandone_get_color_scheme();
+	$tremula_type = celandone_get_tremula_scheme();
 
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
@@ -34,6 +35,53 @@ function celandone_customize_register( $wp_customize ) {
 		'choices'  => celandone_get_color_scheme_choices(),
 		'priority' => 1,
 	) );
+	
+	// Add Tremula type setting and control.
+	$wp_customize->add_setting( 'tremula_scheme', array(
+		'default'           => 'default',
+		'sanitize_callback' => 'celandone_sanitize_tremula_scheme',
+		'transport'         => 'postMessage',
+	) );
+
+	$wp_customize->add_control( 'tremula_scheme', array(
+		'label'    => __( 'Tremula Type', 'celandone' ),
+		'section'  => 'colors',
+		'type'     => 'select',
+		'choices'  => celandone_get_tremula_scheme_choices(),
+		'priority' => 1,
+	) );
+
+
+	// Add Tremula thumb setting and control.
+	$wp_customize->add_setting( 'tremula_thumb_scheme', array(
+		'default'           => 'default',
+		'sanitize_callback' => 'celandone_sanitize_tremula_thumb_scheme',
+		'transport'         => 'postMessage',
+	) );
+
+	$wp_customize->add_control( 'tremula_thumb_scheme', array(
+		'label'    => __( 'Thumbnail Size', 'celandone' ),
+		'section'  => 'colors',
+		'type'     => 'select',
+		'choices'  => celandone_get_tremula_thumb_scheme_choices(),
+		'priority' => 1,
+	) );
+
+// Add Tremula nthumb setting and control.
+	$wp_customize->add_setting( 'tremula_nthumb_scheme', array(
+		'default'           => 'default',
+		'sanitize_callback' => 'celandone_sanitize_tremula_nthumb_scheme',
+		'transport'         => 'postMessage',
+	) );
+
+	$wp_customize->add_control( 'tremula_nthumb_scheme', array(
+		'label'    => __( 'Thumbnail Number Lines', 'celandone' ),
+		'section'  => 'colors',
+		'type'     => 'select',
+		'choices'  => celandone_get_tremula_nthumb_scheme_choices(),
+		'priority' => 1,
+	) );
+
 
 	// Add custom header and sidebar text color setting and control.
 	$wp_customize->add_setting( 'sidebar_textcolor', array(
@@ -68,6 +116,270 @@ function celandone_customize_register( $wp_customize ) {
 	$wp_customize->get_section( 'header_image' )->description = __( 'Applied to the header on small screens and the sidebar on wide screens.', 'celandone' );
 }
 add_action( 'customize_register', 'celandone_customize_register', 11 );
+
+/**
+ * Register Tremula types for CelandOne.
+ *
+ * Can be filtered with {@see 'celandone_tremula_schemes'}.
+ *
+ *
+ * @since CelandOne 1.0
+ *
+ * @return array An associative array of color scheme options.
+ */
+function celandone_get_tremula_schemes() {
+	return apply_filters( 'celandone_tremula_schemes', array(
+		'default' => array(
+			'label'  => __( 'Default', 'celandone' ),
+			'type'   => 'xyPlain',
+		),
+		'stream' => array(
+			'label'  => __( 'StreamHorizontal', 'celandone' ),
+			'type' => 'streamHorizontal',
+		),
+		'pinterest' => array(
+			'label'  => __( 'Pinterest', 'celandone' ),
+			'type' => 'pinterest',
+		),
+		'mountain' => array(
+			'label'  => __( 'Mountain', 'celandone' ),
+			'type' => 'mountain',
+		),
+		'turntable' => array(
+			'label'  => __( 'Turntable', 'celandone' ),
+			'type' => 'turntable',
+		),
+		'enterTheDragon' => array(
+			'label'  => __( 'EnterTheDragon', 'celandone' ),
+			'type' => 'enterTheDragon',
+		),
+		'bezierQuad' => array(
+			'label'  => __( 'BezierQuad', 'celandone' ),
+			'type' => 'bezierQuad',
+		),
+		'bezierShape' => array(
+			'label'  => __( 'BezierShape', 'celandone' ),
+			'type' => 'bezierShape',
+		),
+		'xyBumpTaper' => array(
+			'label'  => __( 'xyBumpTaper', 'celandone' ),
+			'type' => 'xyBumpTaper',
+		),
+		'sunrise' => array(
+			'label'  => __( 'Sunrise', 'celandone' ),
+			'type' => 'sunrise',
+		),
+		
+	) );
+}
+
+if ( ! function_exists( 'celandone_get_tremula_scheme' ) ) :
+/**
+ * Get the current CelandOne tremula type.
+ *
+ * @since CelandOne 1.0
+ *
+ * @return array An associative array of either the current or default color scheme hex values.
+ */
+function celandone_get_tremula_scheme() {
+	$tremula_scheme_option = get_theme_mod( 'tremula_scheme', 'default' );
+	$tremula_schemes       = celandone_get_tremula_schemes();
+
+	if ( array_key_exists( $tremula_scheme_option, $tremula_schemes ) ) {
+		return $tremula_schemes[ $tremula_scheme_option ]['type'];
+	}
+
+	return $tremula_schemes['default']['type'];
+}
+endif; // celandone_get_tremula_scheme
+
+if ( ! function_exists( 'celandone_get_tremula_scheme_choices' ) ) :
+/**
+ * Returns an array of tremula type choices registered for CelandOne.
+ *
+ * @since CelandOne 1.0
+ *
+ * @return array Array of tremula types.
+ */
+function celandone_get_tremula_scheme_choices() {
+	$tremula_schemes                = celandone_get_tremula_schemes();
+	$tremula_scheme_control_options = array();
+
+	foreach ( $tremula_schemes as $tremula_scheme => $value ) {
+		$tremula_scheme_control_options[ $tremula_scheme ] = $value['label'];
+	}
+
+	return $tremula_scheme_control_options;
+}
+endif; // celandone_get_tremula_scheme_choices
+
+if ( ! function_exists( 'celandone_sanitize_tremula_scheme' ) ) :
+/**
+ * Sanitization callback for tremula schemes.
+ *
+ * @since CelandOne 1.0
+ *
+ * @param string $value tremula scheme name value.
+ * @return string tremula scheme name.
+ */
+function celandone_sanitize_tremula_scheme( $value ) {
+	$tremula_schemes = celandone_get_tremula_scheme_choices();
+
+	if ( ! array_key_exists( $value, $tremula_schemes ) ) {
+		$value = 'default';
+	}
+
+	return $value;
+}
+endif; // celandone_sanitize_tremula_scheme
+
+/**
+ * Register Thumb types for CelandOne.
+ *
+ * Can be filtered with {@see 'celandone_tremula_thumb_schemes'}.
+ *
+ *
+ * @since CelandOne 1.0
+ *
+ * @return array An associative array of tremula thumb options.
+ */
+function celandone_get_tremula_thumb_schemes() {
+	return apply_filters( 'celandone_tremula_thumb_schemes', array(
+		'default' => array(
+			'label'  => __( 'Small', 'celandone' ),
+			'type'   => '100',
+		),
+		'medium' => array(
+			'label'  => __( 'Medium', 'celandone' ),
+			'type' => '150',
+		),
+		'large' => array(
+			'label'  => __( 'Large', 'celandone' ),
+			'type' => '200',
+		),
+	) );
+}
+
+if ( ! function_exists( 'celandone_get_tremula_thumb_scheme' ) ) :
+ 
+function celandone_get_tremula_thumb_scheme() {
+	$tremula_thumb_scheme_option = get_theme_mod( 'tremula_thumb_scheme', 'default' );
+	$tremula_thumb_schemes       = celandone_get_tremula_thumb_schemes();
+	if ( array_key_exists( $tremula_thumb_scheme_option, $tremula_thumb_schemes ) ) {
+		return $tremula_thumb_schemes[ $tremula_thumb_scheme_option ]['type'];
+	}
+	return $tremula_thumb_schemes['default']['type'];
+}
+endif; // celandone_get_tremula_thumb_scheme
+
+if ( ! function_exists( 'celandone_get_tremula_thumb_scheme_choices' ) ) :
+/**
+ * Returns an array of tremula thumb size choices registered for CelandOne.
+ *
+ * @since CelandOne 1.0
+ *
+ * @return array Array of tremula thumb sizes.
+ */
+function celandone_get_tremula_thumb_scheme_choices() {
+	$tremula_thumb_schemes                = celandone_get_tremula_thumb_schemes();
+	$tremula_thumb_scheme_control_options = array();
+	foreach ( $tremula_thumb_schemes as $tremula_thumb_scheme => $value ) {
+		$tremula_thumb_scheme_control_options[ $tremula_thumb_scheme ] = $value['label'];
+	}
+	return $tremula_thumb_scheme_control_options;
+}
+endif; // celandone_get_tremula_thumb_scheme_choices
+if ( ! function_exists( 'celandone_sanitize_tremula_thumb_scheme' ) ) :
+/**
+ * Sanitization callback for tremula thumb schemes.
+ *
+ * @since CelandOne 1.0
+ *
+ * @param string $value tremula thumb schemes name value.
+ * @return string tremula thumb scheme name.
+ */
+function celandone_sanitize_tremula_thumb_scheme( $value ) {
+	$tremula_thumb_schemes = celandone_get_tremula_thumb_scheme_choices();
+	if ( ! array_key_exists( $value, $tremula_thumb_schemes ) ) {
+		$value = 'default';
+	}
+	return $value;
+}
+endif; // celandone_sanitize_tremula_thumb_scheme
+
+/**
+ * Register nthumb types for CelandOne.
+ *
+ * Can be filtered with {@see 'celandone_tremula_nthumb_schemes'}.
+ *
+ *
+ * @since CelandOne 1.0
+ *
+ * @return array An associative array of tremula nthumb options.
+ */
+function celandone_get_tremula_nthumb_schemes() {
+	return apply_filters( 'celandone_tremula_nthumb_schemes', array(
+		'default' => array(
+			'label'  => __( 'One', 'celandone' ),
+			'type'   => '0',
+		),
+		'two' => array(
+			'label'  => __( 'Two', 'celandone' ),
+			'type' => '1',
+		),
+		'three' => array(
+			'label'  => __( 'Three', 'celandone' ),
+			'type' => '2',
+		),
+	) );
+}
+
+if ( ! function_exists( 'celandone_get_tremula_nthumb_scheme' ) ) :
+ 
+function celandone_get_tremula_nthumb_scheme() {
+	$tremula_nthumb_scheme_option = get_theme_mod( 'tremula_nthumb_scheme', 'default' );
+	$tremula_nthumb_schemes       = celandone_get_tremula_nthumb_schemes();
+	if ( array_key_exists( $tremula_nthumb_scheme_option, $tremula_nthumb_schemes ) ) {
+		return $tremula_nthumb_schemes[ $tremula_nthumb_scheme_option ]['type'];
+	}
+	return $tremula_nthumb_schemes['default']['type'];
+}
+endif; // celandone_get_tremula_nthumb_scheme
+
+if ( ! function_exists( 'celandone_get_tremula_nthumb_scheme_choices' ) ) :
+/**
+ * Returns an array of tremula nthumb size choices registered for CelandOne.
+ *
+ * @since CelandOne 1.0
+ *
+ * @return array Array of tremula nthumb sizes.
+ */
+function celandone_get_tremula_nthumb_scheme_choices() {
+	$tremula_nthumb_schemes                = celandone_get_tremula_nthumb_schemes();
+	$tremula_nthumb_scheme_control_options = array();
+	foreach ( $tremula_nthumb_schemes as $tremula_nthumb_scheme => $value ) {
+		$tremula_nthumb_scheme_control_options[ $tremula_nthumb_scheme ] = $value['label'];
+	}
+	return $tremula_nthumb_scheme_control_options;
+}
+endif; // celandone_get_tremula_nthumb_scheme_choices
+if ( ! function_exists( 'celandone_sanitize_tremula_nthumb_scheme' ) ) :
+/**
+ * Sanitization callback for tremula nthumb schemes.
+ *
+ * @since CelandOne 1.0
+ *
+ * @param string $value tremula nthumb schemes name value.
+ * @return string tremula nthumb scheme name.
+ */
+function celandone_sanitize_tremula_nthumb_scheme( $value ) {
+	$tremula_nthumb_schemes = celandone_get_tremula_nthumb_scheme_choices();
+	if ( ! array_key_exists( $value, $tremula_nthumb_schemes ) ) {
+		$value = 'default';
+	}
+	return $value;
+}
+endif; // celandone_sanitize_tremula_nthumb_scheme
 
 /**
  * Register color schemes for CelandOne.
@@ -268,6 +580,7 @@ add_action( 'wp_enqueue_scripts', 'celandone_color_scheme_css' );
 function celandone_customize_control_js() {
 	wp_enqueue_script( 'color-scheme-control', get_template_directory_uri() . '/js/color-scheme-control.js', array( 'customize-controls', 'iris', 'underscore', 'wp-util' ), '20141216', true );
 	wp_localize_script( 'color-scheme-control', 'colorScheme', celandone_get_color_schemes() );
+	wp_localize_script( 'tremula-scheme-control', 'tremulaScheme', celandone_get_tremula_schemes() );
 }
 add_action( 'customize_controls_enqueue_scripts', 'celandone_customize_control_js' );
 

@@ -5,6 +5,7 @@
  * .
  */
 
+
 get_header(); ?>
 		
 	<script type="text/javascript">
@@ -17,7 +18,6 @@ get_header(); ?>
 		  });
 		
 		
-		
 		  function createTremula(){
 		
 		    // .tremulaContainer must exist and have actual dimentionality 
@@ -26,6 +26,26 @@ get_header(); ?>
 		
 		    //this creates a hook to a new Tremula instance
 		    var tremula = new Tremula();
+		    
+		    // Celand Wordpress Preferences
+		    var tremula_name = "<?php echo $tremula_type; ?>";
+		    var tremula_type;
+			if (tremula_name == 'bezierShape') tremula_type = tremula.projections.bezierShape;
+			else if (tremula_name == 'sunrise') tremula_type = tremula.projections.sunrise;
+			else if (tremula_name == 'mountain') tremula_type = tremula.projections.mountain;
+			else if (tremula_name == 'bezierQuad') tremula_type = tremula.projections.bezierQuad;
+			else if (tremula_name == 'enterTheDragon') tremula_type = tremula.projections.enterTheDragon;
+			else if (tremula_name == 'xyPlain') tremula_type = tremula.projections.xyPlain;
+			else if (tremula_name == 'pinterest') tremula_type = tremula.projections.pinterest;
+			else if (tremula_name == 'turntable') tremula_type = tremula.projections.turntable;
+			else if (tremula_name == 'streamHorizontal') tremula_type = tremula.projections.streamHorizontal;
+			else if (tremula_name == 'xyBumpTaper') tremula_type = tremula.projections.xyBumpTaper;
+			else tremula_type = tremula.projections.xyPlain;
+	
+			console.log("tremula_type",tremula_type);
+			
+		    var tremula_thumb_type = parseInt("<?php echo $tremula_thumb_type; ?>");	
+		    var tremula_nthumb_type = parseInt("<?php echo $tremula_nthumb_type; ?>");	
 		
 		    //Create a config object -- this is how most default behaivior is set.
 		    //see updateConfig(prop_val_object,refreshStreamFlag) method to change properties of a running instance
@@ -34,7 +54,7 @@ get_header(); ?>
 		      //Size of the static axis in pixels
 		       //If your scroll axis is set to 'x' then this will be the normalized height of your content blocks.
 		       //If your scroll axis is set to 'y' then this will be the normalized width of your content blocks.
-		      itemConstraint      :150,//px
+		      itemConstraint      :tremula_thumb_type,//px
 		
 		      //Margin in px added to each side of each content item
 		      itemMargins         :[5,15],//x (left & right), y (top & bottom) in px
@@ -61,10 +81,11 @@ get_header(); ?>
 		      // (x) turntable
 		      // (x) enterTheDragon
 		      //----------------------
-		      surfaceMap          :tremula.projections.mountain,
+		      // surfaceMap          :tremula.projections.bezierShape,
+		      surfaceMap          :tremula_type,
 		
 		      //how many rows (or colums) to display.  note: this is zero based -- so a value of 0 means there will be one row/column
-		      staticAxisCount     :2,//zero based 
+		      staticAxisCount     :tremula_nthumb_type,//zero based 
 		
 		      //the grid that will be used to project content
 		      //NOTE: Generally, this will stay the same and various surface map projections

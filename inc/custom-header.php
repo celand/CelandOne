@@ -15,6 +15,8 @@
 function celandone_custom_header_setup() {
 	$color_scheme        = celandone_get_color_scheme();
 	$default_text_color  = trim( $color_scheme[4], '#' );
+	$tremula_type = celandone_get_tremula_scheme();
+	$tremula_tt='fuuuck';
 
 	/**
 	 * Filter CelandOne custom-header support arguments.
