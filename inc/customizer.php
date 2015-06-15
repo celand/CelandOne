@@ -130,7 +130,7 @@ add_action( 'customize_register', 'celandone_customize_register', 11 );
 function celandone_get_tremula_schemes() {
 	return apply_filters( 'celandone_tremula_schemes', array(
 		'default' => array(
-			'label'  => __( 'Default', 'celandone' ),
+			'label'  => __( 'xyPlain', 'celandone' ),
 			'type'   => 'xyPlain',
 		),
 		'stream' => array(
@@ -320,11 +320,11 @@ endif; // celandone_sanitize_tremula_thumb_scheme
 function celandone_get_tremula_nthumb_schemes() {
 	return apply_filters( 'celandone_tremula_nthumb_schemes', array(
 		'default' => array(
-			'label'  => __( 'One', 'celandone' ),
-			'type'   => '0',
-		),
-		'two' => array(
 			'label'  => __( 'Two', 'celandone' ),
+			'type'   => '1',
+		),
+		'one' => array(
+			'label'  => __( 'One', 'celandone' ),
 			'type' => '1',
 		),
 		'three' => array(

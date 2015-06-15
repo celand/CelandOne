@@ -37,7 +37,7 @@
 					.gridBox{
 						border:#fff 10px solid;
 						margin-left: -15%;
-						margin: 1%;
+						margin: 10%;
 						
 					}
 		        
