@@ -1,12 +1,12 @@
-### CelandOne ###
-Wordpress Theme Template
-Contributors: Celand Team
-Tags: black, blue, gray, pink, purple, white, yellow, dark, light, two-columns, left-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready, gallery animation, tremula,
-Requires at least: 4.1
-Tested up to: 4.1
-Stable tag: 4.1
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+# CelandOne #
+### Wordpress Tremula Theme ###
+Celand One Worpress theme is a minimal template that uses Tremula Javascript. 
+TremulaJS is a client-side javascript UI component providing Bézier-based content-stream interactions with momentum & physics effects for mouse, scroll and and touch UIs.
+TremulaJS is compatible with all recent versions of iOS Safari, Chrome, OS X Safari, FF, IE.
+
+Ideal theme for Portfolio and Gallery Website, Art and Photography Blog.
+
+IMPORTANT: It requires JSON API Wordpress Plug-In (https://wordpress.org/plugins/json-api/)
 
 1. Description
 2. Installation
@@ -16,6 +16,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 6. Quick Specs
 7. Requirements
 8. Gallery Animation
+9. Notes
 
 ## 1. Description ##
 Our 2015 default theme is clean, blog-focused, and designed for clarity. CelandOne's simple, straightforward typography is readable on a wide variety of screen sizes, and suitable for multiple languages. We designed it using a mobile-first approach, meaning your content takes center-stage, regardless of whether your visitors arrive by smartphone, tablet, laptop, or desktop computer.
@@ -109,11 +110,30 @@ For a good outcome and visualization of the website the API feature requires JSO
 * (x) streamHorizontal
 * (y) pinterest
 * (x) mountain
-*	(x) turntable
+* (x) turntable
 * (x) enterTheDragon
 * (x or y) bezierQuad
 * (x or y) bezierShape
 * (x or y) xyBumpTaper
 * (x or y) sunrise
 
+## 9. Notes ##
 
+Contributors: Celand Team
+
+Tags: black, blue, gray, pink, purple, white, yellow, dark, light, two-columns, left-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready, gallery animation, tremula,
+
+Requires at least: 4.1
+
+Tested up to: 4.1
+
+Stable tag: 4.1
+
+License: GPLv2 or later
+
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+TremulaJS was created by Garris Shipon at Art.com Labs.
+Licensed under GPLv3.
+
+TremulaJS demo on vimeo: https://vimeo.com/99481197
