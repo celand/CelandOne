@@ -255,7 +255,7 @@ get_header(); ?>
 		 <div class="pageLayoutContainer">
  		 
 			<div class="tremulaContainer"></div>
-			<h1><a href="https://github.com/garris/TremulaJS" target="_blank"></a></h1>
+			
       		 <span class="cta"></span>
   	  	</div>
 	</div><!-- .content-area -->
