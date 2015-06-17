@@ -166,10 +166,10 @@ get_header(); ?>
 		  o	original image, either a jpg, gif or png, depending on source format
 		  */
 		  var pageCtr = 1;
-		  var nposts = 40;
-		  var nslug = "art";
+		  var nposts = 20;
+		  var nslug = "uncategorized";
 		  function loadFlickr(){
-		    var dataUrl = "/?json=get_category_posts&include=url,title,thumbnail,categories&count="+nposts+"&slug="+nslug;
+		    var dataUrl = "/?json=get_category_posts&include=url,title,thumbnail,categories&count="+nposts"&slug="+nslug;
 		    $.ajax({
 		      url:dataUrl
 		      ,dataType: 'jsonp'
@@ -237,8 +237,8 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		 <div class="pageLayoutContainer">
  		 
-			<div class="tremulaContainer"></div>
-			<h1><a href="https://github.com/garris/TremulaJS" target="_blank"></a></h1>
+			<div class="tremulaContainer" style="margin-left:-180px"></div>
+			
       		 <span class="cta"></span>
   	  	</div>
 	</div>
