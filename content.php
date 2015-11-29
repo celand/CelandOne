@@ -11,12 +11,14 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div id="object" class="expandOpen">
 	<?php
 		// Post thumbnail.
 		celandone_post_thumbnail();
 	?>
-
+</div>
 	<header class="entry-header">
+	<div id="object" class="hatch">
 		<?php
 			if ( is_single() ) :
 				the_title( '<h1 class="entry-title">', '</h1>' );
@@ -24,6 +26,7 @@
 				the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 			endif;
 		?>
+	</div>	
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
@@ -56,5 +59,26 @@
 		<?php celandone_entry_meta(); ?>
 		<?php edit_post_link( __( 'Edit', 'celandone' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
+	
+	<script>
+	$('#object').click(function() {
+		$(this).addClass("expandOpen");
+	});
+	</script>
+
+	<script>
+	$(window).scroll(function() {
+		$('#object').each(function(){
+		var imagePos = $(this).offset().top;
+
+		var topOfWindow = $(window).scrollTop();
+			if (imagePos < topOfWindow+300) {
+				$(this).addClass("hatch");
+			}
+		});
+	});
+</script>
+
+
 
 </article><!-- #post-## -->
