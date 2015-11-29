@@ -52,7 +52,7 @@ get_header(); ?>
 		      //Sets the scroll axis 'x'|'y'.
 		      //NOTE: projections generally only work with one scroll axis
 		      //when changeing this value, make sure to use a compatible projection
-		      scrollAxis          :'y',//'x'|'y'
+		      scrollAxis          :'x',//'x'|'y'
 		
 		      //surfaceMap is the projection/3d-effect which will be used to display grid content
 		      //following is a list of built-in projections with their corresponding scroll direction
@@ -169,7 +169,7 @@ get_header(); ?>
 		  var nposts = 20;
 		  var nslug = "uncategorized";
 		  function loadFlickr(){
-		    var dataUrl = "/?json=get_category_posts&include=url,title,thumbnail,categories&count="+nposts"&slug="+nslug;
+		    var dataUrl = "/?json=get_category_posts&include=url,title,thumbnail,categories&count="+nposts+"&slug="+nslug;
 		    $.ajax({
 		      url:dataUrl
 		      ,dataType: 'jsonp'
@@ -235,15 +235,21 @@ get_header(); ?>
 	</script>	
 		
 	<div id="primary" class="content-area">
-		 <div class="pageLayoutContainer">
+		
+			<div class="pageLayoutContainer">
  		 
-			<div class="tremulaContainer" style="margin-left:-180px"></div>
+				<div class="tremulaContainer" style="margin-left:20px"></div>
 			
-      		 <span class="cta"></span>
-  	  	</div>
-	</div>
+      			 <span class="cta"></span>
+  	  		</div>
+		
 	
+	</div>
+
 	<div id="secondary" class="content-area">
+		
+
+
 		<main id="main" class="site-main" role="main">
 
 		<?php
@@ -277,6 +283,7 @@ get_header(); ?>
 		?>
 
 		</main><!-- .site-main -->
-	</div><!-- .content-area -->
+		</div><!-- .content-area -->
+	
 
 <?php get_footer(); ?>
