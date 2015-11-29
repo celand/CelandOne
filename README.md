@@ -41,13 +41,19 @@ Our 2015 default theme is clean, blog-focused, and designed for clarity. CelandO
 
 ## 3. Color Scheme Features ##
 
-You can change the colors of your site easily using CelandOne.
+1. You can change the Tremula Home page appearence easily using CelandOne.
+  1. In your admin panel, go to Appearance -> Customize.
+  2. Now you will see the Customizer and a tab called 'Colors'. Click this tab.
+  3. You can now change the Tremula appearence (list of feature -> 8.Gallery Animation Types), size and number of thumbnails by selecting one of the predefined ones. You will be able to see the change only after reloading the page. ( If you want to modify the appearence of Tremula differently from custom selection you can find the Home Page Tremula code in home.php)
 
-1. In your admin panel, go to Appearance -> Customize.
-4. Now you will see the Customizer and a tab called 'Colors'. Click this tab.
-5. You can now change your color scheme by selecting one of the predefined ones. Choose a color scheme you want from Base Color Scheme dropdown. You can preview the change in the Customizer.
-6. Should you wish to create your own color scheme or modify an existing one, you can by selecting the colors for each area listed.
-7. Once you are happy with your color changes you can click save and your changes will be reflected on your live site.
+
+2. You can change the colors of your site easily using CelandOne.
+
+  1. In your admin panel, go to Appearance -> Customize.
+  2. Now you will see the Customizer and a tab called 'Colors'. Click this tab.
+  3. You can now change your color scheme by selecting one of the predefined ones. Choose a color scheme you want from Base Color Scheme dropdown. You can preview the change in the Customizer.
+  4. Should you wish to create your own color scheme or modify an existing one, you can by selecting the colors for each area listed.
+  5. Once you are happy with your color changes you can click save and your changes will be reflected on your live site.
 
 ## 4. Add Social Links to the sidebar ##
 
