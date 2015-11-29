@@ -19,7 +19,7 @@
 	<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
-	<link rel="stylesheet" href="/wp-content/themes/CelandOne/css/animations.css">
+	<link rel="stylesheet" href="/wp-content/themes/CelandOne-master/css/animations.css">
 	<link rel="stylesheet" href="http://garris.github.io/TremulaJS/dist/Tremula.css">
 
 		<style type="text/css"> @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);</style>
