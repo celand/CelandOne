@@ -34,6 +34,10 @@ Our 2015 default theme is clean, blog-focused, and designed for clarity. CelandO
 1. In your admin panel, go to Appearance -> Themes and click the Add New button.
 2. Click Upload and Choose File, then select the theme's ZIP file. Click Install Now.
 3. Click Activate to use your new theme right away.
+4. Download JSON API Wordpress Plug-In here (https://wordpress.org/plugins/json-api/), Upload and Activate the PlugIn in your Wordpress directory.
+5. In your admin panel, go to Settings -> Permalinks -> Common Settings and click Post Name -> Save Changes
+6. In your admin panel, go to Settings -> JSON API. Here you can change API Base Address and check if JSON API PlugIn is working correctly. Copy paste the API address URL on a blank page to verify its functionality. The URL should look like the following http://YourURL/api/get_recent_posts/. The page should load the API posts results.
+
 
 ## 3. Color Scheme Features ##
 
