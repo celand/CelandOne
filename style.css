@@ -49,6 +49,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
  *    16.6 - Desktop Large
  *    16.7 - Desktop X-Large
  * 17.0 - Print
+ * 18.0 - Animation CSS3
  */
 
 
@@ -5992,4 +5993,11 @@ p > video {
 		margin: 7.6923% 0 0;
 		padding: 0;
 	}
+}
+
+/**
+ * 18.0 Animations CSS3
+ */
+#object{
+	visibility: hidden;
 }
