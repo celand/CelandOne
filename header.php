@@ -19,6 +19,7 @@
 	<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
+	<link rel="stylesheet" href="/wp-content/themes/CelandOne/css/animations.css">
 	<link rel="stylesheet" href="http://garris.github.io/TremulaJS/dist/Tremula.css">
 
 		<style type="text/css"> @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);</style>
@@ -28,6 +29,9 @@
 		<script src="http://garris.github.io/TremulaJS/libs/jsBezier-0.6.js"></script>
 
 		<script src="http://garris.github.io/TremulaJS/dist/Tremula.js"></script>
+
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
 	<style> 
 	
 			
@@ -35,9 +39,9 @@
 		
 					/* Note: any gridBox border added must be compensated for by adding negative margin */
 					.gridBox{
-						border:#fff 10px solid;
-						margin-left: -15%;
-						margin: 10%;
+						border:#fff 2px solid;
+						
+						margin-top: 2%;
 						
 					}
 		        
@@ -45,7 +49,7 @@
 		          width:100%;
 		        }
 		
-		.boxLabel{display: inline-block;font-size: 13px;font-weight: 100; color:#666;}
+		.boxLabel{display: inline-block;font-size: 13px;font-weight: 100; color:#808080;}
 		
 		
 		.doReflect .boxLabel{
@@ -67,7 +71,7 @@
 						height:calc(100% - 20px);
 						width:100%;
 						position:relative;
-						top:-20px;
+						top:-10px;
 						background-image:url(http://pngimg.com/upload/smoke_PNG962.png);
 						background-repeat:no-repeat;
 						left:0;
@@ -89,6 +93,16 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'celandone' ); ?></a>
 
